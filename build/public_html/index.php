@@ -1,0 +1,12 @@
+<?php
+
+require '../vendor/autoload.php';
+
+use App\Core\App;
+
+// Require the init.php file
+// CHANGE THIS PATH IF USING A NON STANDARD SETUP
+require_once '../app/init.php';
+
+// Start the app
+$app = new App();

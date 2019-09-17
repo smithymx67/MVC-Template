@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "codeception/codeception": "^3.0"
+    },
+    "autoload": {
+        "classmap": [
+            "../src/app/"
+        ],
+        "psr-4": {
+            "CloudAccountingSystem\\": "../src/app/"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+Options -MultiViews -Indexes
+RewriteEngine On
+
+# Redirect to HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+# CHANGE THESE PATHS IF USING A NON STANDARD SETUP
+ErrorDocument 404 /Errors/PageNotFound
+ErrorDocument 403 /Errors/ForbiddenAccess
+ErrorDocument 500 /Errors/InternalServerError

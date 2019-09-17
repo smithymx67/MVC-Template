@@ -1,0 +1,24 @@
+{
+  "name": "web_project_template",
+  "version": "2.0.0",
+  "description": "A default template for all new web projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://smithymx67@github.com/smithymx67/Web-Project-Template.git"
+  },
+  "author": "Sam Smith (smithymx67)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smithymx67/Web-Project-Template/issues"
+  },
+  "homepage": "https://github.com/smithymx67/Web-Project-Template#readme",
+  "devDependencies": {
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}
