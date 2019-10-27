@@ -7,7 +7,11 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
         - \Helper\Acceptance
+        - WebDriver:
+            url: https://astroid/MVC-Template/public_html/
+            host: 192.168.56.1
+            port: 4444
+            window_size: maximize
+            browser: chrome
     step_decorators: ~        
