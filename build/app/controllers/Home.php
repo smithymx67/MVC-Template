@@ -7,9 +7,13 @@ use App\Core\Controller;
  * The home controller
  */
 class Home extends Controller {
-  public function __construct() {}
+  public $data;
+
+  public function __construct() {
+    $this->data = [];
+  }
 
   public function Index () {
-    $this->view('home/index');
+    $this->view('home/index', $this->data);
   }
 }

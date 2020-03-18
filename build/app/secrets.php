@@ -20,7 +20,7 @@ const DEVELOPMENT_EMAIL_CONTACT_TO_ADDRESS = "";
 /**
  * STAGING
  */
-const STAGING_URL     = "staging-accountbooks.smithymx67.co.uk";
+const STAGING_URL     = "staging-mvc-template.smithymx67.co.uk";
 
 const STAGING_DB_HOSTNAME = '';
 const STAGING_DB_USERNAME = '';
@@ -38,7 +38,7 @@ const STAGING_EMAIL_CONTACT_TO_ADDRESS = "";
 /**
  * PRODUCTION
  */
-const PRODUCTION_URL  = "accountbooks.online";
+const PRODUCTION_URL  = "smithymx67.co.uk";
 
 const PRODUCTION_DB_HOSTNAME = '';
 const PRODUCTION_DB_USERNAME = '';
