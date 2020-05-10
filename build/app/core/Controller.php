@@ -1,5 +1,5 @@
 <?php
-namespace App\Core;
+namespace MvcTemplate\App\Core;
 
 /**
  * Super class for all controllers

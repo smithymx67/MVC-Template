@@ -7,7 +7,7 @@
             "../src/app/"
         ],
         "psr-4": {
-            "CloudAccountingSystem\\": "../src/app/"
+            "MvcTemplate\\App\\": "../src/app/"
         }
     }
 }

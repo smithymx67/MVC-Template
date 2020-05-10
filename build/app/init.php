@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\DbController;
+use MvcTemplate\App\Core\DbController;
 
 require_once 'secrets.php';
 date_default_timezone_set("UTC");

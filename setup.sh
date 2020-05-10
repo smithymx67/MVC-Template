@@ -13,4 +13,4 @@ composer install
 
 printf "\n==== Running gulp ====\n"
 cd ../
-gulp
+gulp build

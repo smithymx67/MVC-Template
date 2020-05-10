@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace MvcTemplate\App\Controllers;
 
-use App\Core\Controller;
+use MvcTemplate\App\Core\Controller;
 
 /**
  * The home controller

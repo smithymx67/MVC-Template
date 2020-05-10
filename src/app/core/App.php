@@ -1,8 +1,8 @@
 <?php
-namespace App\Core;
+namespace MvcTemplate\App\Core;
 
-use App\Controllers\Errors;
-use App\Controllers\Home;
+use MvcTemplate\App\Controllers\Errors;
+use MvcTemplate\App\Controllers\Home;
 
 /**
  * Runs the app and makes the magic happen
@@ -14,7 +14,7 @@ class App {
   protected $params     = [];
 
   /**
-   * App Contructor
+   * App Constructor
    */
   public function __construct() {
     // Prepare the URL
@@ -23,13 +23,13 @@ class App {
     // Controller
     if(isset($url[0])) {
       // Check to see if the given controller exists
-      if(file_exists(ROOT_APP_DIR . 'controllers/' . $this->standardize($url[0]) . '.php')) {
+      if(file_exists(ROOT_APP_DIR . 'Controllers/' . $this->standardize($url[0]) . '.php')) {
         $this->controller = $this->standardize($url[0]);
         unset($url[0]);
 
         // Require and create the controller
-        require_once ROOT_APP_DIR . 'controllers/' . $this->controller . '.php';
-        $nsClass = "\\App\\Controllers\\$this->controller";
+        require_once ROOT_APP_DIR . 'Controllers/' . $this->controller . '.php';
+        $nsClass = "\\MvcTemplate\\\App\\Controllers\\$this->controller";
         $this->controller = new $nsClass;
 
         // Model
@@ -71,14 +71,14 @@ class App {
 
   // Set the default route
   private function getDefaultController() {
-    require_once ROOT_APP_DIR . 'controllers/Home.php';
+    require_once ROOT_APP_DIR . 'Controllers/Home.php';
     $this->controller = new Home();
     $this->method     = 'index';
   }
 
   // Set up route to 404 error page
   private function pageNotFound() {
-    require_once ROOT_APP_DIR . 'controllers/Errors.php';
+    require_once ROOT_APP_DIR . 'Controllers/Errors.php';
     $this->controller = new Errors();
     $this->method     = 'PageNotFound';
   }

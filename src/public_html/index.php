@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-use App\Core\App;
+use MvcTemplate\App\Core\App;
 
 // Require the init.php file
 // CHANGE THIS PATH IF USING A NON STANDARD SETUP
