@@ -1,13 +1,16 @@
 {
     "require-dev": {
-        "codeception/codeception": "^3.0"
+        "codeception/codeception": "^4.0",
+        "codeception/module-webdriver": "^1.1",
+        "codeception/module-asserts": "^1.2",
+        "codeception/module-phpbrowser": "^1.0"
     },
     "autoload": {
         "classmap": [
             "../src/app/"
         ],
         "psr-4": {
-            "MvcTemplate\\App\\": "../src/app/"
+            "CloudAccountingSystem\\": "../src/app/"
         }
     }
 }
