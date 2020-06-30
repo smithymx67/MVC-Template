@@ -7,10 +7,10 @@
     },
     "autoload": {
         "classmap": [
-            "../src/app/"
+            "../src/App/"
         ],
         "psr-4": {
-            "CloudAccountingSystem\\": "../src/app/"
+            "CloudAccountingSystem\\": "../src/App/"
         }
     }
 }

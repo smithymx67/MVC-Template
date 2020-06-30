@@ -1,6 +1,10 @@
 <?php
 namespace PurplePallet;
 
+use DateInterval;
+use DateTime;
+use DateTimeZone;
+
 class TimeTraveller extends DateTime {
   public function __construct($timezone = 'UTC') {
     parent::__construct("now", new DateTimeZone($timezone));
@@ -10,9 +14,9 @@ class TimeTraveller extends DateTime {
     return new TimeTraveller($timezone);
   }
 
-  public static function parse($format, $date) {
-    $dateObj = parent::createFromFormat($format, $date);
-    return TimeTraveller::now()->setTimestamp($dateObj->format('U'));
+  public static function parse($format, $date, $timezone = 'UTC') {
+    $dateObj = parent::createFromFormat($format, $date, new DateTimeZone($timezone));
+    return TimeTraveller::now($timezone)->setTimestamp($dateObj->format('U'));
   }
 
   public function format($format = 'Y/m/d H:i:s') {
@@ -290,172 +294,3 @@ class TimeTraveller extends DateTime {
     return $this->addDays($daysTillEndOfWeek)->endOfDay();
   }
 }
-
-echo "Default Example<br>";
-var_dump(new TimeTraveller());
-echo "<br>";
-var_dump(TimeTraveller::now());
-
-echo "<br>";
-echo "<br>Timezone Example<br>";
-var_dump(new TimeTraveller("Europe/Rome"));
-echo "<br>";
-var_dump(TimeTraveller::now("Europe/Rome"));
-
-echo "<br>";
-echo "<br>Parse Example</br>";
-var_dump(TimeTraveller::parse("d/m/Y H:i:s", "19/10/2016 14:48:21"));
-
-echo "<br>";
-echo "<br>Format Example</br>";
-var_dump(TimeTraveller::now()->format());
-
-echo "<br>";
-echo "<br>Difference Example</br>";
-$d1 = TimeTraveller::parse("d/m/Y H:i:s", "1/12/2018 00:00:00");
-$d2 = TimeTraveller::parse("d/m/Y H:i:s", "34/12/2018 00:00:30");
-var_dump($d1->diffInYears($d2));
-echo "<br>";
-var_dump($d1->diffInMonths($d2));
-echo "<br>";
-var_dump($d1->diffInDays($d2));
-echo "<br>";
-var_dump($d1->diffInWeeks($d2));
-echo "<br>";
-var_dump($d1->diffInSeconds($d2));
-echo "<br>";
-var_dump($d1->diffInMinutes($d2));
-echo "<br>";
-var_dump($d1->diffInHours($d2));
-echo "<br>";
-var_dump($d1->diffInMicroseconds($d2));
-echo "<br>";
-var_dump($d1->diffInMilliseconds($d2));
-
-echo "<br>";
-echo "<br>Get Date Examples</br>";
-var_dump(TimeTraveller::now()->getShortYear());
-echo "<br>";
-var_dump(TimeTraveller::now()->getLongYear());
-echo "<br>";
-var_dump(TimeTraveller::now()->isLeapYear());
-echo "<br>";
-var_dump(TimeTraveller::now()->getMonthNumber());
-echo "<br>";
-var_dump(TimeTraveller::now()->getMonthShortName());
-echo "<br>";
-var_dump(TimeTraveller::now()->getMonthLongName());
-echo "<br>";
-var_dump(TimeTraveller::now()->getDaysInMonth());
-echo "<br>";
-var_dump(TimeTraveller::now()->getDayOfMonth());
-echo "<br>";
-var_dump(TimeTraveller::now()->getDayOfWeek());
-echo "<br>";
-var_dump(TimeTraveller::now()->getWeekShotText());
-echo "<br>";
-var_dump(TimeTraveller::now()->getWeekLongText());
-echo "<br>";
-var_dump(TimeTraveller::now()->getDateSuffix());
-echo "<br>";
-var_dump(TimeTraveller::now()->getDayOfYear());
-
-echo "<br>";
-echo "<br>Get Time Examples</br>";
-var_dump(TimeTraveller::now()->getTimeAmPm());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeAmPm(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTime12Hour());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTime24Hour());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTime12Hour(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTime24Hour(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeMinute());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeSecond());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeMinute(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeSecond(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeMillisecond());
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimeMicrosecond());
-
-echo "<br>";
-echo "<br>Get Timezone Examples</br>";
-var_dump(TimeTraveller::now()->getTimezone());
-echo "<br>";
-var_dump(TimeTraveller::now()->isDaylightSaving());
-echo "<br>";
-var_dump(TimeTraveller::now()->getGmtDifference());
-echo "<br>";
-var_dump(TimeTraveller::now()->getGmtDifference(true));
-echo "<br>";
-var_dump(TimeTraveller::now()->getTimezoneAbbreviation());
-echo "<br>";
-var_dump(TimeTraveller::now()->getUtcOffsetInSeconds());
-echo "<br>";
-
-echo "<br>";
-echo "<br>Get Full Date Examples</br>";
-var_dump(TimeTraveller::now()->getIso8601Date());
-echo "<br>";
-var_dump(TimeTraveller::now()->getRfc2822Date());
-echo "<br>";
-var_dump(TimeTraveller::now()->getSecondsSinceEpoch());
-
-echo "<br>";
-echo "<br>Add Date Time Examples</br>";
-var_dump(TimeTraveller::now()->addYears(1));
-echo "<br>";
-var_dump(TimeTraveller::now()->addMonths(46));
-echo "<br>";
-var_dump(TimeTraveller::now()->addDays(562));
-echo "<br>";
-var_dump(TimeTraveller::now()->addHours(4));
-echo "<br>";
-var_dump(TimeTraveller::now()->addMinutes(186));
-echo "<br>";
-var_dump(TimeTraveller::now()->addSeconds(3000));
-echo "<br>";
-var_dump(TimeTraveller::now()->addWeeks(4));
-
-echo "<br>";
-echo "<br>Subtract Date Time Examples</br>";
-var_dump(TimeTraveller::now()->subYears(1));
-echo "<br>";
-var_dump(TimeTraveller::now()->subMonths(46));
-echo "<br>";
-var_dump(TimeTraveller::now()->subDays(562));
-echo "<br>";
-var_dump(TimeTraveller::now()->subHours(4));
-echo "<br>";
-var_dump(TimeTraveller::now()->subMinutes(186));
-echo "<br>";
-var_dump(TimeTraveller::now()->subSeconds(3000));
-echo "<br>";
-var_dump(TimeTraveller::now()->subWeeks(4));
-
-echo "<br>";
-echo "<br>Start / End Examples</br>";
-var_dump(TimeTraveller::now()->startOfDay());
-echo "<br>";
-var_dump(TimeTraveller::now()->endOfDay());
-echo "<br>";
-var_dump(TimeTraveller::now()->startOfMonth());
-echo "<br>";
-var_dump(TimeTraveller::now()->endOfMonth());
-echo "<br>";
-var_dump(TimeTraveller::now()->startOfYear());
-echo "<br>";
-var_dump(TimeTraveller::now()->endOfYear());
-echo "<br>";
-var_dump(TimeTraveller::now()->startOfWeek());
-echo "<br>";
-var_dump(TimeTraveller::now()->endOfWeek());
-echo "<br>";

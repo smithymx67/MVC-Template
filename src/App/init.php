@@ -28,7 +28,7 @@ define("DIR_SEP" , DIRECTORY_SEPARATOR);
 $protocol             = (isset($_SERVER['HTTPS'])) ? "https://" : "http://";
 $rootURL              = $protocol . $_SERVER['HTTP_HOST'];
 $rootPublicDir        = $_SERVER['DOCUMENT_ROOT'] . DIR_SEP;
-$rootAppDir           = dirname($_SERVER['DOCUMENT_ROOT']) . DIR_SEP . "app" . DIR_SEP;
+$rootAppDir           = dirname($_SERVER['DOCUMENT_ROOT']) . DIR_SEP . "App" . DIR_SEP;
 $rootVendorsDir       = dirname($_SERVER['DOCUMENT_ROOT']) . DIR_SEP . "vendors" . DIR_SEP;
 
 // Email Details
@@ -47,7 +47,7 @@ if ($env == DEVELOPMENT) {
   // Update these vars to reflect dev setup
   $rootURL            .= '/MVC-Template/public_html';
   $rootPublicDir      .= "MVC-Template" . DIR_SEP . "public_html" . DIR_SEP;
-  $rootAppDir         = $_SERVER['DOCUMENT_ROOT'] . DIR_SEP . "MVC-Template" . DIR_SEP . "app" . DIR_SEP;
+  $rootAppDir         = $_SERVER['DOCUMENT_ROOT'] . DIR_SEP . "MVC-Template" . DIR_SEP . "App" . DIR_SEP;
   $rootVendorsDir     = $_SERVER['DOCUMENT_ROOT'] . DIR_SEP . "MVC-Template" . DIR_SEP . "vendors" . DIR_SEP;
 
   $emailHost              = DEVELOPMENT_EMAIL_HOST;
